@@ -1,14 +1,17 @@
 # Name Variant Search Tool
 
-Use it: https://bellingcat.github.io/name-variant-search/
+https://bellingcat.github.io/name-variant-search/
 
 ### Motivation
+
 When researching an individual online, it is useful to search not only for their full legal name but also for many variants. This can become tedious and time consuming for the researcher and could be streamlined.
 
 ###Goal
+
 Given a person's name, generate various plausible alternative forms of the name and streamline the work of researching each one.
 
 ###Flow
+
 Enter a name in a form field and submit. Possible outcomes, (in order of increasing complexity of implementation):
 1. Display a list of potential name variants (selectable/editable?)
 2. Render a button to open a search for that name in a new tab 
@@ -16,6 +19,7 @@ Enter a name in a form field and submit. Possible outcomes, (in order of increas
 4. Run a search query in the background, load and render the results in a usable way.
 
 ## Considerations
+
 When generating name variants, many considerations apply and may be culturally specific. See https://en.wikipedia.org/wiki/Personal_name
 
 **Initials** may be substituted for first or middle names, and middle names may be omitted.
