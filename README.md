@@ -48,39 +48,3 @@ https://github.com/berkmancenter/namae (ruby)
 https://github.com/carltonnorthern/nicknames (python)
 
 TextGain's language ID api may be useful when deciding which culturally-specific variants to include: https://apiv2.textgain.com/redoc#tag/Identification/operation/language_identification_language_post
-
- 
- 
- 
- TRANSLATE with  x
- 
- 
-  English 
-   ArabicHebrewPolish  BulgarianHindiPortuguese  CatalanHmong DawRomanian  Chinese SimplifiedHungarianRussian  Chinese TraditionalIndonesianSlovak  CzechItalianSlovenian  DanishJapaneseSpanish  DutchKlingonSwedish  EnglishKoreanThai  EstonianLatvianTurkish  FinnishLithuanianUkrainian  FrenchMalayUrdu  GermanMalteseVietnamese  GreekNorwegianWelsh  Haitian CreolePersian    
-  
- 
-        
- 
-  
- 
- 
- TRANSLATE with 
- 
- 
-  COPY THE URL BELOW  
- 
-     
- 
-    Back 
-    
- 
- 
- EMBED THE SNIPPET BELOW IN YOUR SITE   
- 
-  
- 
-Enable collaborative features and customize widget: Bing Webmaster Portal
- 
-Back
- 
-  
