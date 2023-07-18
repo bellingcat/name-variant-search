@@ -52,5 +52,6 @@ Example: Mike for Michael, Bill for William, Bob for Robert in the West. Katya f
 * https://github.com/theiconic/name-parser (php)
 * https://github.com/berkmancenter/namae (ruby)
 * https://github.com/carltonnorthern/nicknames (python)
+* https://www.nameapi.org/en/demos/name-parser/
 
 TextGain's language ID api may be useful when deciding which culturally-specific variants to include: https://apiv2.textgain.com/redoc#tag/Identification/operation/language_identification_language_post
