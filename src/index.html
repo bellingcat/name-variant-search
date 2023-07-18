@@ -16,18 +16,11 @@
     </style>
   </head>
   <body>
-    <script>
-      function getNames() {
-        const name= document.querySelector("#name").value;
-        document.querySelector("#output").textContent = name;
-      }
-    </script>
-
-    <div class="form">
+    <form id="form" class="form">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" />
-      <button onclick="getNames()">Search</button>
-    </div>
+      <input type="submit" value="Search"/>
+    </form>
     <div id="output">
     </div>
   </body>
