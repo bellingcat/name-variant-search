@@ -1,5 +1,7 @@
 # Name Variant Search Tool
 
+Use it: https://bellingcat.github.io/name-variant-search/
+
 ### Motivation
 When researching an individual online, it is useful to search not only for their full legal name but also for many variants. This can become tedious and time consuming for the researcher and could be streamlined.
 
