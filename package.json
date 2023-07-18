@@ -1,0 +1,18 @@
+{
+  "name": "name-variant-search",
+  "version": "1.0.0",
+  "description": "A tool for researching a person's name online in multiple formats",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bellingcat/name-variant-search.git"
+  },
+  "author": "Stichting Bellingcat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bellingcat/name-variant-search/issues"
+  },
+  "homepage": "https://github.com/bellingcat/name-variant-search#readme",
+  "dependencies": {
+    "@bellingcat/alias-generator": "^1.0.0"
+  }
+}

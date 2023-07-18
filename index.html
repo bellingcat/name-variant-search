@@ -16,18 +16,29 @@
     </style>
   </head>
   <body>
+    <script src="node_modules/@bellingcat/alias-generator/dist/main.js"></script>
     <script>
-      function getNames() {
-        const name= document.querySelector("#name").value;
-        document.querySelector("#output").textContent = name;
+      function getNames(e) {
+        e.preventDefault();
+        const name = event.target.elements.name.value;
+
+        const results = Alias.getAliases(name);
+
+        let output = document.querySelector("#output");
+        output.textContent = "";
+        for (const i in results) {
+          let item = document.createElement('li');
+          item.textContent = results[i];
+          output.append(item);
+        }
       }
     </script>
 
-    <div class="form">
+    <form onsubmit="getNames(event)" class="form">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" />
-      <button onclick="getNames()">Search</button>
-    </div>
+      <input type="submit" value="Search"/>
+    </form>
     <div id="output">
     </div>
   </body>
