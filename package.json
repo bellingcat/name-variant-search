@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A tool for researching a person's name online in multiple formats",
   "scripts": {
-    "build": "webpack --mode development"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@bellingcat/alias-generator": "^1.0.0"
+    "@bellingcat/alias-generator": "^2.0.0"
   }
 }
