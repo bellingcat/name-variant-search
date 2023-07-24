@@ -27,7 +27,7 @@ const config = {
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html', // Path to your source HTML file
-        filename: 'dist/index.html', // Output file name
+        filename: 'index.html', // Output file name
       }),
     ],
 };
