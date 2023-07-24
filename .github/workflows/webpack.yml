@@ -2,9 +2,9 @@ name: NodeJS with Webpack
 
 on:
   push:
-    branches: [ "webpack" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "webpack" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.x]
 
     steps:
     - uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
       run: |
         npm install
         npx webpack
-        
+
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
