@@ -2,6 +2,9 @@
   "name": "name-variant-search",
   "version": "1.0.0",
   "description": "A tool for researching a person's name online in multiple formats",
+  "scripts": {
+    "build": "webpack --mode development"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/bellingcat/name-variant-search.git"
@@ -12,6 +15,14 @@
     "url": "https://github.com/bellingcat/name-variant-search/issues"
   },
   "homepage": "https://github.com/bellingcat/name-variant-search#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "babel-loader": "^9.1.3",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
   "dependencies": {
     "@bellingcat/alias-generator": "^1.0.0"
   }
