@@ -28,6 +28,6 @@ jobs:
         npx webpack
         
     - name: Deploy 🚀
-      uses: uses: JamesIves/github-pages-deploy-action@v4
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: dist
