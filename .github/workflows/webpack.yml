@@ -26,3 +26,8 @@ jobs:
       run: |
         npm install
         npx webpack
+        
+    - name: Deploy 🚀
+      uses: actions/deploy-pages@v2
+      with:
+        folder: dist
