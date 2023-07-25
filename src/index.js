@@ -48,7 +48,7 @@ function getNames(e) {
 
   root.render(
     <div class="results">
-      <h1>Results</h1>
+      <h2>Results</h2>
       <div>
         <span class="name">Search All</span>
         { button("Google", google(results)) }
