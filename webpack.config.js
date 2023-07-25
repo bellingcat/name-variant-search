@@ -25,6 +25,10 @@ const config = {
             },
           }
         },
+        {
+          test: /\.(ico|png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+        },
       ],
     },
     resolve: {
