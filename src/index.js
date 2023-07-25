@@ -10,11 +10,19 @@ function searchButtons(query) {
   return <span class="buttons">
     { button("Google", google(query)) }
     { button("Duck Duck Go", ddg(query)) }
+    { button("Facebook", facebook(query)) }
   </span>;
 }
 
 function button(text, href) {
   return <a target="_blank" href={href}><button>{text}</button></a>;
+}
+
+function facebook(query) {
+  if (Array.isArray(query)) {
+    query = query.join("%20OR%20")
+  }
+  return `https://www.facebook.com/search/people/?q=${query}`;
 }
 
 function google(query) {
