@@ -13,6 +13,23 @@
       .form {
           margin-bottom: 1em;
       }
+      .result {
+        display: flex;
+        align-items: center;
+      }
+      .name {
+        flex-grow:1;
+        padding: 0 5px;
+      }
+      button {
+        margin: 10px;
+      }
+      li:nth-child(odd) {
+        background: #eee;
+      }
+      #output {
+        max-width: 600px;
+      }
     </style>
   </head>
   <body>
@@ -20,7 +37,7 @@
     <form id="form" class="form">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" />
-      <input type="submit" value="Search"/>
+      <input type="submit" value="Submit"/>
     </form>
     <div id="output">
     </div>
