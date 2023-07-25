@@ -1,4 +1,8 @@
 import { getAliases } from '@bellingcat/alias-generator';
+import { createRoot } from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 
 function getNames(e) {
   e.preventDefault();
@@ -17,3 +21,7 @@ function getNames(e) {
 
 const form = document.querySelector("#form");
 form.addEventListener('submit', getNames);
+
+const app = document.querySelector("#app");
+const root = createRoot(app);
+root.render(<h1>Hello, world</h1>);

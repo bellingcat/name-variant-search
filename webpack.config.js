@@ -5,6 +5,7 @@ const config = {
     target: 'web',
     mode: 'production',
     entry: './src/index.js',
+    devtool: 'inline-source-map',
     output: {
       path: path.resolve('dist'),
       filename: 'bundle.js',
@@ -17,7 +18,12 @@ const config = {
         },
         {
           test: /\.js?$/,
-          use: 'babel-loader',
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react']
+            },
+          }
         },
       ],
     },
