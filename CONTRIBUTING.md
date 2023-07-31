@@ -16,7 +16,7 @@ https://github.com/bellingcat/alias-generator/issues
 
  * Remember to search the list of open issues first, to avoid duplicates. If you see your issue has already been reported by someone else, feel free to add a comment or simply a "👍" reaction to the bottom of their report.
 
- * Keep the title short but descriptive like an email subject line, such as "Ukranian spelling variations"
+ * Keep the title short but descriptive like an email subject line, such as "Ukrainian spelling variations"
 
  * Write a detailed description, including specific examples and screenshots. You can also reference other related issues by number to link to them, e.g., [#3](https://github.com/bellingcat/name-variant-search/issues/8).
 
