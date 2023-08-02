@@ -18,6 +18,7 @@
   "homepage": "https://github.com/bellingcat/name-variant-search#readme",
   "devDependencies": {
     "@babel/core": "^7.22.9",
+    "@babel/plugin-syntax-import-assertions": "^7.22.5",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "babel-loader": "^9.1.3",
