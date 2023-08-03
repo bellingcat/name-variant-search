@@ -8,9 +8,9 @@ const root = createRoot(output);
 
 function searchButtons(query) {
   return <span class="buttons">
-    { button("Google", google(query)) }
-    { button("Duck Duck Go", ddg(query)) }
-    { button("Facebook", facebook(query)) }
+    { button("G", google(query)) }
+    { button("D", ddg(query)) }
+    { button("F", facebook(query)) }
   </span>;
 }
 
@@ -25,9 +25,13 @@ function facebook(query) {
   return `https://www.facebook.com/search/people/?q=${query}`;
 }
 
+function constructGoogleQuery(query) {
+  return query.join(" OR ");
+}
+
 function google(query) {
   if (Array.isArray(query)) {
-    query = query.join("+OR+");
+    query = constructGoogleQuery(query);
   }
   return `https://google.com/search?q=${query}`;
 }
@@ -46,12 +50,15 @@ function getNames(e) {
     return `\"${name}\"` // make the name quoted search term
   });
 
+  const searchInput = document.querySelector('input.gsc-input');
+  searchInput.value = constructGoogleQuery(results);
+  const searchButton = document.querySelector('button.gsc-search-button');
+  searchButton.click();
+
   root.render(
     <div class="results">
-      <h2>Results</h2>
+      <h3>Suggestions</h3>
       <div>
-        <span class="name">Search All</span>
-        { button("Google", google(results)) }
       </div>
       <ul>
       {

@@ -39,18 +39,34 @@
       .footer a, .footer a:visited {
         color: #1b73e9;
       }
+      .container {
+        display: flex;
+        flex-direction: row;
+      }
+      .left ul {
+        padding: 0;
+      }
     </style>
   </head>
   <body>
     <h1>Name Variant Search</h1>
-    <div id="app"></div>
-    <form id="form" class="form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" />
-      <input type="submit" value="Submit"/>
-    </form>
-    <div id="output">
+    <script async src="https://cse.google.com/cse.js?cx=a05feb2897fb94d24">
+    </script>
+    <div class='container'>
+      <div class='left'>
+        <form id="form" class="form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" />
+          <input type="submit" value="Submit"/>
+        </form>
+        <div id="output">
+        </div>
+      </div>
+      <div class='right'>
+        <div class="gcse-searchresults-only"></div>
+      </div>
     </div>
+
     <p class="footer">
       <a href="https://github.com/bellingcat/name-variant-search/issues">
         Report an issue
