@@ -1,13 +1,64 @@
 import { getAliases } from '@bellingcat/alias-generator';
 import { createRoot } from 'react-dom/client';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import { TagsInput } from "react-tag-input-component";
+
+const TagsEditor = () => {
+  const [selected, setSelected] = useState([]);
+  const [suggested, setSuggested] = useState(new Set());
+
+  function onChangeHandler(newSelected) {
+    setSelected(newSelected);
+
+    const searchInput = document.querySelector('input.gsc-input');
+    searchInput.value = constructGoogleQuery(newSelected);
+    const searchButton = document.querySelector('button.gsc-search-button');
+    searchButton.click();
+
+    newSelected.forEach(function(name) {
+      const results = getAliases(name).map(function(name) {
+        return `\"${name}\"` // make the name quoted search term
+      }).forEach(function(name) {
+        suggested.add(name);
+      });
+      setSuggested(suggested);
+      console.log('suggested', results);
+    });
+  }
+
+  return (
+    <div className="results">
+
+      <div>
+          <div>
+            <TagsInput value={selected} onChange={onChangeHandler}
+              name="names"
+              placeHolder="enter names"
+            />
+            <em>press enter or comma to add new name</em>
+          </div>
+      </div>
+      <h3>Suggestions</h3>
+      <ul>
+      {
+        Array.from(suggested).map(function(name) {
+          return <li className='result' key={name}>
+            <span className="name">{name}</span>
+            { searchButtons(name) }
+          </li>;
+        })
+      }
+      </ul>
+    </div>
+  );
+};
 
 let output = document.querySelector("#output");
 const root = createRoot(output);
+root.render( <TagsEditor />);
 
 function searchButtons(query) {
-  return <span class="buttons">
+  return <span className="buttons">
     { button("G", google(query)) }
     { button("D", ddg(query)) }
     { button("F", facebook(query)) }
@@ -42,37 +93,3 @@ function ddg(query) {
   return `https://duckduckgo.com/?q=${query}`;
 }
 
-function getNames(e) {
-  e.preventDefault();
-  const name = event.target.elements.name.value;
-
-  const results = getAliases(name).map(function(name) {
-    return `\"${name}\"` // make the name quoted search term
-  });
-
-  const searchInput = document.querySelector('input.gsc-input');
-  searchInput.value = constructGoogleQuery(results);
-  const searchButton = document.querySelector('button.gsc-search-button');
-  searchButton.click();
-
-  root.render(
-    <div class="results">
-      <h3>Suggestions</h3>
-      <div>
-      </div>
-      <ul>
-      {
-        results.map(function(name) {
-          return <li class='result'>
-            <span class="name">{name}</span>
-            { searchButtons(name) }
-          </li>;
-        })
-      }
-      </ul>
-    </div>
-  );
-}
-
-const form = document.querySelector("#form");
-form.addEventListener('submit', getNames);
