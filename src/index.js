@@ -2,6 +2,7 @@ import { getAliases } from '@bellingcat/alias-generator';
 import { createRoot } from 'react-dom/client';
 import React, { useState } from 'react';
 import { TagsInput } from "react-tag-input-component";
+import './index.css';
 
 const TagsEditor = () => {
   const [selected, setSelected] = useState([]);
