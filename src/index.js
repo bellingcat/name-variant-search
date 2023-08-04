@@ -7,6 +7,12 @@ const TagsEditor = () => {
   const [selected, setSelected] = useState([]);
   const [suggested, setSuggested] = useState(new Set());
 
+  function constructGoogleQuery(names) {
+      return names.map(function(name) {
+        return `\"${name}\"` // make the name quoted search term
+      }).join(" OR ");
+  }
+
   function onChangeHandler(newSelected) {
     setSelected(newSelected);
 
@@ -16,14 +22,22 @@ const TagsEditor = () => {
     searchButton.click();
 
     newSelected.forEach(function(name) {
-      const results = getAliases(name).map(function(name) {
-        return `\"${name}\"` // make the name quoted search term
-      }).forEach(function(name) {
-        suggested.add(name);
+      let newSuggested = new Set(suggested);
+      const results = getAliases(name).forEach(function(name) {
+        newSuggested.add(name);
       });
-      setSuggested(suggested);
-      console.log('suggested', results);
+      setSuggested(newSuggested);
     });
+  }
+
+  function addSuggestion(event) {
+    console.log(arguments);
+    let name = event.currentTarget.dataset.name;
+    if (selected.indexOf(name) >= 0) {
+      // dupe
+    } else {
+      setSelected([...selected, name]);
+    }
   }
 
   return (
@@ -31,18 +45,25 @@ const TagsEditor = () => {
 
       <div>
           <div>
+            <p>Search for exact matches on any of these names:</p>
             <TagsInput value={selected} onChange={onChangeHandler}
               name="names"
               placeHolder="enter names"
             />
-            <em>press enter or comma to add new name</em>
+            <em>Press Enter to add new name. Backspace to delete.</em>
           </div>
       </div>
-      <h3>Suggestions</h3>
+    { (suggested.size) > 0 ? <h3>Suggestions</h3> : null}
       <ul>
       {
         Array.from(suggested).map(function(name) {
+          if (selected.indexOf(name) >= 0) {
+            return;
+          }
           return <li className='result' key={name}>
+            <button onClick={addSuggestion} data-name={name}>
+              Add
+            </button>
             <span className="name">{name}</span>
             { searchButtons(name) }
           </li>;
@@ -58,15 +79,17 @@ const root = createRoot(output);
 root.render( <TagsEditor />);
 
 function searchButtons(query) {
-  return <span className="buttons">
-    { button("G", google(query)) }
-    { button("D", ddg(query)) }
-    { button("F", facebook(query)) }
+  return <span className="searchButtons">
+    { button("", 'google', google(query)) }
+    { button("", 'ddg', ddg(query)) }
+    { button("", 'facebook', facebook(query)) }
   </span>;
 }
 
-function button(text, href) {
-  return <a target="_blank" href={href}><button>{text}</button></a>;
+function button(text, className, href) {
+  return <a target="_blank" href={href}>
+    <span className={"logo " + className}>{text}</span>
+  </a>;
 }
 
 function facebook(query) {
@@ -76,13 +99,9 @@ function facebook(query) {
   return `https://www.facebook.com/search/people/?q=${query}`;
 }
 
-function constructGoogleQuery(query) {
-  return query.join(" OR ");
-}
-
 function google(query) {
   if (Array.isArray(query)) {
-    query = constructGoogleQuery(query);
+    query = query.join(" OR ");
   }
   return `https://google.com/search?q=${query}`;
 }
