@@ -76,6 +76,7 @@ const TagsEditor = () => {
   const rightPane = document.querySelector('#right');
   if (selected.length <= 0) {
     rightPane.className = 'hide';
+    suggested.clear();
   } else {
     rightPane.className = '';
   }
