@@ -38,6 +38,9 @@ li:nth-child(odd) {
   display: flex;
   flex-direction: row;
 }
+.left {
+  min-width: 400px;
+}
 .left ul {
   padding: 0;
 }
