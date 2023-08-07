@@ -47,6 +47,9 @@ const TagsEditor = () => {
   }
 
   function onChangeHandler(newSelected) {
+    newSelected = newSelected.map(function(name) {
+      return name.toLowerCase();
+    })
     setSelected(newSelected);
 
     const searchInput = document.querySelector('input.gsc-input');
