@@ -74,3 +74,6 @@ em {
 .facebook {
   background: url("../public/facebook.svg");
 }
+.hide {
+  display: none;
+}
