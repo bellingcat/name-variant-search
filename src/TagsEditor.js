@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { getAliases } from '@bellingcat/alias-generator';
 import { TagsInput } from "react-tag-input-component";
+import { Toaster, toast } from 'react-hot-toast';
 
 function searchButtons(query) {
   return <span className="searchButtons">
@@ -76,6 +77,11 @@ const TagsEditor = () => {
     }
   }
 
+  function copyToClipboard(name) {
+    navigator.clipboard.writeText(name);
+    toast.success("Copied to clipboard", {id: 'clipboard'});
+  }
+
   const rightPane = document.querySelector('#right');
   if (selected.length <= 0) {
     rightPane.className = 'hide';
@@ -86,7 +92,7 @@ const TagsEditor = () => {
 
   return (
     <div className="results">
-
+      <Toaster />
       <div>
           <div>
             <p>Search for exact matches on any of these names:</p>
@@ -107,6 +113,9 @@ const TagsEditor = () => {
           return <li className='result' key={name}>
             <button onClick={addSuggestion} data-name={name}>
               Add
+            </button>
+            <button onClick={() => copyToClipboard(name)}>
+              Copy
             </button>
             <span className="name">{name}</span>
             { searchButtons(name) }
