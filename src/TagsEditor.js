@@ -65,9 +65,11 @@ const TagsEditor = () => {
     setSelected(newSelected);
 
     const searchInput = document.querySelector('input.gsc-input');
-    searchInput.value = constructGoogleQuery(newSelected);
-    const searchButton = document.querySelector('button.gsc-search-button');
-    searchButton.click();
+    if (searchInput)  {
+      searchInput.value = constructGoogleQuery(newSelected);
+      const searchButton = document.querySelector('button.gsc-search-button');
+      searchButton.click();
+    }
 
     newSelected.forEach(function(name) {
       let newSuggested = new Set(suggested);
