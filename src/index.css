@@ -68,6 +68,9 @@ em {
   background-size: contain;
   background-position: center;
 }
+.searchButtons a {
+  cursor: pointer;
+}
 .google {
   background: url("../public/google.svg");
 }

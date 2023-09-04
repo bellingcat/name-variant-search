@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "@bellingcat/alias-generator": "^4.0.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",

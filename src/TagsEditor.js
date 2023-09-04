@@ -2,12 +2,23 @@ import React, { useState } from 'react';
 import { getAliases } from '@bellingcat/alias-generator';
 import { TagsInput } from "react-tag-input-component";
 import { Toaster, toast } from 'react-hot-toast';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
+
+function copyToClipboard(name) {
+  navigator.clipboard.writeText(name);
+  toast.success("Copied to clipboard", {id: 'clipboard'});
+}
 
 function searchButtons(query) {
   return <span className="searchButtons">
     { button("", 'google', google(query)) }
     { button("", 'ddg', ddg(query)) }
     { button("", 'facebook', facebook(query)) }
+
+    <a onClick={() => copyToClipboard(query)}>
+      <FontAwesomeIcon icon={faCopy} className='logo'/>
+    </a>
   </span>;
 }
 
@@ -77,11 +88,6 @@ const TagsEditor = () => {
     }
   }
 
-  function copyToClipboard(name) {
-    navigator.clipboard.writeText(name);
-    toast.success("Copied to clipboard", {id: 'clipboard'});
-  }
-
   const rightPane = document.querySelector('#right');
   if (selected.length <= 0) {
     rightPane.className = 'hide';
@@ -113,9 +119,6 @@ const TagsEditor = () => {
           return <li className='result' key={name}>
             <button onClick={addSuggestion} data-name={name}>
               Add
-            </button>
-            <button onClick={() => copyToClipboard(name)}>
-              Copy
             </button>
             <span className="name">{name}</span>
             { searchButtons(name) }
