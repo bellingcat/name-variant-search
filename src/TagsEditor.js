@@ -48,28 +48,16 @@ function ddg(query) {
   return `https://duckduckgo.com/?q=${query}`;
 }
 
-const TagsEditor = () => {
+const TagsEditor = (props) => {
   const [selected, setSelected] = useState([]);
   const [suggested, setSuggested] = useState(new Set());
-
-  function constructGoogleQuery(names) {
-      return names.map(function(name) {
-        return `\"${name}\"` // make the name quoted search term
-      }).join(" OR ");
-  }
 
   function onChangeHandler(newSelected) {
     newSelected = newSelected.map(function(name) {
       return name.toLowerCase();
     })
     setSelected(newSelected);
-
-    const searchInput = document.querySelector('input.gsc-input');
-    if (searchInput)  {
-      searchInput.value = constructGoogleQuery(newSelected);
-      const searchButton = document.querySelector('button.gsc-search-button');
-      searchButton.click();
-    }
+    props.onChange(newSelected);
 
     newSelected.forEach(function(name) {
       let newSuggested = new Set(suggested);
@@ -90,14 +78,9 @@ const TagsEditor = () => {
     }
   }
 
-  const rightPane = document.querySelector('#right');
   if (selected.length <= 0) {
-    rightPane.className = 'hide';
     suggested.clear();
-  } else {
-    rightPane.className = '';
   }
-
   return (
     <div className="results">
       <Toaster />
