@@ -43,7 +43,8 @@ const config = {
       new HtmlWebpackPlugin({
         template: './src/index.html', // Path to your source HTML file
         filename: 'index.html', // Output file name
-        inject: 'head'
+        inject: 'head',
+        scriptLoading: 'blocking',
       }),
     ],
 };
