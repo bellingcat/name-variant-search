@@ -83,3 +83,27 @@ em {
 .hide {
   display: none;
 }
+.suggestions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+.suggestions-header h3 {
+  margin: 0;
+}
+.reset-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.reset-button:hover {
+  background-color: #d32f2f;
+}

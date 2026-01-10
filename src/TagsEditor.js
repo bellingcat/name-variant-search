@@ -3,7 +3,7 @@ import { getAliases } from '@bellingcat/alias-generator';
 import { TagsInput } from "react-tag-input-component";
 import { Toaster, toast } from 'react-hot-toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import { faCopy, faRotateLeft } from '@fortawesome/free-solid-svg-icons'
 
 function copyToClipboard(name) {
   navigator.clipboard.writeText(name);
@@ -78,6 +78,13 @@ const TagsEditor = (props) => {
     }
   }
 
+  function handleReset() {
+    setSelected([]);
+    setSuggested(new Set());
+    props.onChange([]);
+    toast.success("Search cleared", {id: 'reset'});
+  }
+
   if (selected.length <= 0) {
     suggested.clear();
   }
@@ -94,7 +101,14 @@ const TagsEditor = (props) => {
             <em>Press Enter to add new name. Backspace to delete.</em>
           </div>
       </div>
-    { (suggested.size) > 0 ? <h3>Suggestions</h3> : null}
+    { (suggested.size) > 0 ? (
+      <div className="suggestions-header">
+        <h3>Suggestions</h3>
+        <button className="reset-button" onClick={handleReset} title="Clear all">
+          <FontAwesomeIcon icon={faRotateLeft} /> Reset
+        </button>
+      </div>
+    ) : null}
       <ul>
       {
         Array.from(suggested).map(function(name) {
