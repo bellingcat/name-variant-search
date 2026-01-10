@@ -78,11 +78,12 @@ const TagsEditor = (props) => {
     }
   }
 
+  // clears everything so user can start fresh - see issue #15
   function handleReset() {
     setSelected([]);
     setSuggested(new Set());
     props.onChange([]);
-    toast.success("Search cleared", {id: 'reset'});
+    toast.success("Cleared");
   }
 
   if (selected.length <= 0) {
@@ -101,14 +102,14 @@ const TagsEditor = (props) => {
             <em>Press Enter to add new name. Backspace to delete.</em>
           </div>
       </div>
-    { (suggested.size) > 0 ? (
+    {suggested.size > 0 && (
       <div className="suggestions-header">
         <h3>Suggestions</h3>
-        <button className="reset-button" onClick={handleReset} title="Clear all">
+        <button className="reset-btn" onClick={handleReset}>
           <FontAwesomeIcon icon={faRotateLeft} /> Reset
         </button>
       </div>
-    ) : null}
+    )}
       <ul>
       {
         Array.from(suggested).map(function(name) {
