@@ -17,26 +17,29 @@
   },
   "homepage": "https://github.com/bellingcat/name-variant-search#readme",
   "devDependencies": {
-    "@babel/core": "^7.22.9",
-    "@babel/plugin-syntax-import-assertions": "^7.22.5",
-    "@babel/preset-env": "^7.22.9",
-    "@babel/preset-react": "^7.22.5",
-    "babel-loader": "^9.1.3",
-    "css-loader": "^6.8.1",
+    "@babel/core": "^7.29.7",
+    "@babel/plugin-syntax-import-assertions": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^6.11.0",
     "html-loader": "^4.2.0",
-    "html-webpack-plugin": "^5.5.3",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.88.2",
+    "html-webpack-plugin": "^5.6.7",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.107.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.2.2"
+    "webpack-dev-server": "^5.2.5"
   },
   "dependencies": {
     "@bellingcat/alias-generator": "^4.0.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-hot-toast": "^2.4.1",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.6.0",
     "react-tag-input-component": "^2.0.2"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
   }
 }
